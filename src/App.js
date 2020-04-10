@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from'react'
+import {BrowserRouter,Route,Link} from 'react-router-dom'
+// import Login from './components/Login'
+import Home from './components/Home'
+import UserRegister from './components/UserRegister'
+import Login from './components/Login'
+import Customer from './components/customer'
+import CustomerNew from './components/customerNew'
+import customerShow from './components/customerShow'
+import department from './components/department'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(props){
+    return(
+           <BrowserRouter>
+           <div>
+               
+               <Route path='/' component={Home} />
+               <Route path='/userreg' component = {UserRegister}/>
+               <Route path='/login' component={Login}/>
+               <Route path='/customer' exact={true} component={Customer}/>
+               <Route path='/customer/newcustomer' exact ={true} component={CustomerNew}/>
+               <Route path='/customer/newcustomer/:id'component={customerShow}/>
+               <Route path='/department' component={department}/>
+           </div>
+           </BrowserRouter>
+    )
 }
 
-export default App;
+export default  App
