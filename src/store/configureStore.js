@@ -5,13 +5,15 @@ import usersReducer from '../reducers/usersReducers'
 import loginReducer from '../reducers/loginReducers'
 import customerReducer from '../reducers/customerReducer'
 import departmentReducer  from '../reducers/departmentReducer'
+import employeeReducer from '../reducers/employeeReducer'
 
 const configureStore = ()=>{
     const store =createStore(combineReducers({
       users:usersReducer,
       auth:loginReducer,
       customers:customerReducer,
-      department:departmentReducer
+      department:departmentReducer,
+      employee:employeeReducer
     }),applyMiddleware(thunk))
     return store
 }

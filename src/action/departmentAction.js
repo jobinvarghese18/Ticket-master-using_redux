@@ -2,7 +2,6 @@
 //ADDcustomer
 
 import Axios from "axios"
-import { deleteCustomer } from "./customerAction"
 
 export const postDepartment = (dep)=>{
     return {type:'POST_DEPARTMENT',payload:dep}

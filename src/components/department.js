@@ -1,12 +1,15 @@
 import React from 'react'
 import{connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import {startPostDepartment, startGetDepartment, startDeleteDepartment} from '../action/departmentAction'
 
 class Department  extends React.Component{
     constructor(){
         super()
         this.state = {
-            name:''
+            name:'',
+            showFlag:false,
+            id:''
         }
     }
     componentDidMount(){
@@ -20,6 +23,10 @@ class Department  extends React.Component{
             this.props.dispatch(startPostDepartment(data))
             
     }
+    handleShow = (id)=>{
+        this.setState({id})
+        this.setState({showFlag:true})
+    }
     handleRemove =(id)=>{
         this.props.dispatch(startDeleteDepartment(id))
     }
@@ -28,7 +35,7 @@ class Department  extends React.Component{
             this.setState({ [e.target.name]:e.target.value})
     }
     render(){
-        console.log(this.props.department)
+
         return(
             <div>
                 <table border='1'>
@@ -46,14 +53,17 @@ class Department  extends React.Component{
                                 return(
                                     <tr key={dep._id}>
                                         <td>{dep.name}</td>
-                                        <td><button className='myButton'>show</button></td>
+                                        <td><button className='myButton' 
+                                        onClick = {()=>{this.handleShow(dep._id)}}>show</button></td>
                                         <td><button className='myButton' 
                                         onClick={()=>{this.handleRemove(dep._id)}}>Delete</button></td>
+                                       
                                     </tr>
                                 )
                             })
                         }
                     </tbody>
+                    {this.state.showFlag?<Redirect to={`department/${this.state.id}`}/>:''}
                 </table>
                 <form onSubmit={this.handleSubmit}>
                    <label>Department</label>

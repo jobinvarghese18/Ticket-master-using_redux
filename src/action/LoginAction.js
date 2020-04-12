@@ -13,9 +13,12 @@ export const setLogin =(token)=>{
          .then((response)=>{
              console.log(response.data)
              const token = response.data
-             
-                const data = response.data.token
-                localStorage.setItem('auth',JSON.stringify(data))
+                 if(response.data.hasOwnProperty('token')){
+                    console.log('set')
+                    const data = response.data.token
+                    localStorage.setItem('auth',JSON.stringify(data))
+                 }
+                
             
              dispatch(setLogin(token))
          })

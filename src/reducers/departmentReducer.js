@@ -1,8 +1,8 @@
 const intialState = []
 const departmentReducer = (state = intialState,action)=>{
     switch(action.type){
-        case 'POST_DEPARMENT':{
-            return [].concat(action.payload)
+        case 'POST_DEPARTMENT':{
+            return state.concat(action.payload)
         }
         case 'GET_DEPARTMENT':{
             return [].concat(action.payload)
