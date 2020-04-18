@@ -25,6 +25,9 @@ class EmployeeNew extends React.Component{
     }
     handleSubmit = (e)=>{
         e.preventDefault()
+        const redirect  = ()=>{
+                return this.props.history.push('/employee')
+        }
         const data  = {
                 name:this.state.name,
                 email:this.state.email,
@@ -32,7 +35,7 @@ class EmployeeNew extends React.Component{
                 department:this.state.id
 
         }
-        this.props.dispatch(startPostEmployee(data))
+        this.props.dispatch(startPostEmployee(data,redirect))
     }
     render(){
         return(

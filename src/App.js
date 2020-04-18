@@ -11,6 +11,9 @@ import department from './components/department'
 import departmentShow from './components/departmentShow'
 import Employee from './components/employee'
 import EmployeeNew from './components/employeeNew'
+import EmployeeShow from './components/employeeShow'
+import ticket from './components/ticket'
+import ticketNew from './components/ticketNew'
 
 
 function App(props){
@@ -28,6 +31,9 @@ function App(props){
                <Route path='/department/:id' component = {departmentShow} />
                <Route path ='/employee' component={Employee} exact = {true}/>
                <Route path='/employee/employeenew' component={EmployeeNew}/>
+               <Route path='/employee/:id' component={EmployeeShow}/>
+               <Route path='/ticket' exact={true} component={ticket}/>
+               <Route path='/ticket/new' component = {ticketNew}/>  
            </div>
            </BrowserRouter>
     )

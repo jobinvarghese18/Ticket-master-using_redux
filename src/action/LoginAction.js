@@ -18,6 +18,9 @@ export const setLogin =(token)=>{
                     const data = response.data.token
                     localStorage.setItem('auth',JSON.stringify(data))
                  }
+                 else{
+                     alert('Invalid Email or Password')
+                 }
                 
             
              dispatch(setLogin(token))

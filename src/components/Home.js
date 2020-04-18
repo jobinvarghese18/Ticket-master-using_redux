@@ -34,7 +34,7 @@ class Home extends React.Component{
              <li><Link className='myuLink' to='/customer'>Customers</Link></li>
              <li><Link className='myuLink' to='/department'>Department</Link></li> 
              <li><Link className='myuLink' to='/employee'>Employee</Link></li>
-             <li><Link className='myuLink' to='/userreg'>Tickets</Link></li>
+             <li><Link className='myuLink' to='/ticket'>Tickets</Link></li>
              <li><Link className='myuLink' onClick={this.handleLogut} to='/'>Logout</Link></li>
 </ul>:<div>
     
