@@ -45,7 +45,10 @@ class Tickets extends React.Component{
                 priority:this.state.priority,
                 message:this.state.message
         }
-        this.props.dispatch(startPostTicket(data))
+        const redirect  = ()=>{
+          return  this.props.history.push('/ticket')
+        }
+        this.props.dispatch(startPostTicket(data,redirect))
     }
     handleChange = (e)=>{
         this.setState({[e.target.name]:e.target.value})

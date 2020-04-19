@@ -51,7 +51,7 @@ class Employee extends React.Component{
                                     <td>{emp.name}</td>
                                     <td>{emp.email}</td>
                                     <td>{emp.mobile}</td>
-                                    <td>{emp.department.name}</td>
+                                    <td>{emp.department?emp.department.name:'loading'}</td>
                                     <td><button className='myButton' onClick={()=>{this.handleShow(emp._id)}}>Show</button></td>
                                     <td><button className='myButton' onClick={()=>{this.handleRemove(emp._id)}}>Remove</button></td>
 

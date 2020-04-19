@@ -28,7 +28,7 @@ class Home extends React.Component{
        
     return(
         <div>
-            <h1>Home</h1>
+            <h1>Ticket Master</h1>
         {localStorage.getItem('auth')? <ul className="myUl">
              
              <li><Link className='myuLink' to='/customer'>Customers</Link></li>
