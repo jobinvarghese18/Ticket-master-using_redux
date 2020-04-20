@@ -39,7 +39,7 @@ class Tickets extends React.Component{
                 department:this.state.department,
                 employees:[
                     {
-                        id:this.state.employee
+                        _id:this.state.employee
                     }
                 ],
                 priority:this.state.priority,
@@ -57,7 +57,7 @@ class Tickets extends React.Component{
         this.setState({[e.target.name]:e.target.value})
     }
     render(){
-        
+        console.log(this.state.employee)
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>

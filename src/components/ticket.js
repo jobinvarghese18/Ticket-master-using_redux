@@ -5,6 +5,7 @@ import {startGetTicket} from '../action/ticketAction'
 import { startGetCustomers} from '../action/customerAction'
 import { startGetDepartment } from '../action/departmentAction'
 import {startGetEmployee} from '../action/employeeAction'
+import {startDeleteTickets} from '../action/ticketAction'
 
 class TicketHome extends React.Component{
     componentDidMount(){
@@ -22,8 +23,14 @@ class TicketHome extends React.Component{
             this.props.dispatch(startGetEmployee())
         }
     }
+    handleShow = (id)=>{
+        return this.props.history.push(`/tickets/${id}`)
+    }
+    handleRemove = (id)=>{
+         this.props.dispatch(startDeleteTickets(id))
+    }
     render(){
-        console.log(this.props.customer)
+       
         return(
             <div>
                 
@@ -50,18 +57,17 @@ class TicketHome extends React.Component{
                         this.props.tickets.map(tkts=>{
                             let department = this.props.department.find(dep=>dep._id==tkts.department)
                             let customer = this.props.customer.find(cst=>cst._id === tkts.customer)
-                            let employee =  this.props.employees.find(emp=>emp._id === tkts.employees[0]._id)
-                            console.log(customer)
+                            let employee =  this.props.employees.find(emp=>emp._id == tkts.employees[0]._id)
                             return(
-                                <tr>
+                                <tr key={tkts._id}>
                                   <td>{tkts.code}</td>
                                   <td>{customer?customer.name:'loading'}</td>
                                   <td>{department?department.name:'loading'}</td>
-                                  <td>{tkts.employees[0]._id}</td>
+                                  <td>{employee?employee.name:'loading'}</td>
                                   <td>{tkts.message}</td>
                                   <td>{tkts.priority}</td>
-                                  <td><button className='myButton'>show</button></td>
-                                  <td><button className='myButton'>Remove</button></td>
+                                  <td><button className='myButton' onClick={()=>{this.handleShow(tkts._id)}}>show</button></td>
+                                  <td><button className='myButton' onClick={()=>{this.handleRemove(tkts._id)}}>Remove</button></td>
                                   <td><input type='checkbox'/></td>
                                 </tr>
                             )

@@ -56,3 +56,33 @@ export const startGetTicket = ()=>{
         })
     }
 }
+
+
+
+
+//Delete Ticket 
+
+export const  deleteTickets = (data)=>{
+    return {type:'DELETE_TICKET',payload:data}
+}
+
+export const startDeleteTickets = (id)=>{
+    return(dispatch)=>{
+        let auth = localStorage.getItem('auth')
+        auth = JSON.parse(auth)
+        axios.delete(`http://dct-ticket-master.herokuapp.com/tickets/${id}`,{
+            headers:{
+                'x-auth':auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            dispatch(deleteTickets(data))
+            
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}

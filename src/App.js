@@ -14,6 +14,7 @@ import EmployeeNew from './components/employeeNew'
 import EmployeeShow from './components/employeeShow'
 import ticket from './components/ticket'
 import ticketNew from './components/ticketNew'
+import ticketShow from './components/ticketShow'
 
 
 function App(props){
@@ -33,7 +34,8 @@ function App(props){
                <Route path='/employee/employeenew' component={EmployeeNew}/>
                <Route path='/employee/:id' component={EmployeeShow}/>
                <Route path='/ticket' exact={true} component={ticket}/>
-               <Route path='/ticket/new' component = {ticketNew}/>  
+               <Route path='/ticket/new' exact={true} component = {ticketNew}/>  
+               <Route path='/tickets/:id' exact={true} component = {ticketShow}/>
            </div>
            </BrowserRouter>
     )
