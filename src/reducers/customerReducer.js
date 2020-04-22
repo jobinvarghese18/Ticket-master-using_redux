@@ -11,6 +11,16 @@ const customerReducer =(state=initialState,action)=>{
        case 'DELETE_CUSTOMER':{
         return [].concat(state.filter(user=>user._id != action.payload._id))
        }
+       case 'UPDATE_CUSTOMER': {
+           return state.map(cstr=>{
+               if(cstr._id === action.payload.id){
+                   return Object.assign({},cstr,action.payload)
+               }
+               else{
+                   return Object.assign({},cstr)
+               }
+           })
+       }
        default:{
            return [].concat(state)
        }

@@ -1,3 +1,5 @@
+import customerReducer from "./customerReducer"
+
 const initialState = []
 
 const ticketReducer = (state = initialState,action)=>{
@@ -10,6 +12,16 @@ const ticketReducer = (state = initialState,action)=>{
         }
         case 'DELETE_TICKET':{
             return [].concat(state.filter(tkt=>tkt._id != action.payload._id))
+        }
+        case 'UPDATE_TICKET':{
+            return state.map(tkt=>{
+                if(tkt._id===action.payload._id){
+                    return Object.assign({},tkt,action.payload)
+                }
+                else{
+                    return Object.assign({},tkt)
+                }
+            })
         }
         default : {
             return [].concat(state)

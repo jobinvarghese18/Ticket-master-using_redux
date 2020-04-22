@@ -79,3 +79,28 @@ export const startDeleteDepartment =  (id)=>{
 }
 
 
+//update department 
+export const updateDepartment = (data)=>{
+    return { type:'UPDATE_DEP',payload:data}
+}
+
+export const startUpdateDepartment  = (data,id)=>{
+    return(dispatch)=>{
+        let auth = localStorage.getItem('auth')
+        auth  = JSON.parse(auth)
+        Axios.put(`http://dct-ticket-master.herokuapp.com/departments/${id}`,data,{
+            headers : {
+                'x-auth':auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            dispatch(updateDepartment(data))
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}
+

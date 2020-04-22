@@ -10,6 +10,10 @@ const departmentReducer = (state = intialState,action)=>{
         case 'DELETE_DEP':{
             return [].concat(state.filter(dep=>dep._id != action.payload._id))
         }
+        case 'UPDATE_DEP':{
+            return state.map(dep=>dep._id === action.payload._id?
+                {dep,name:action.payload.name}:dep)
+        }
         default : {
             return [].concat(state)
         }

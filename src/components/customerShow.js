@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {startGetCustomers} from '../action/customerAction'
 
@@ -23,7 +24,7 @@ class CustomerShow extends React.Component{
                 <h2>Customee Details</h2>
                 {this.props.customers? 
                 
-                <table border='1'>
+                <table>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -42,7 +43,7 @@ class CustomerShow extends React.Component{
                 </tbody>
             </table>
                 :''}
-               
+               <Link to={`customers/${this.props.match.params.id}`}>Edit customer</Link>
             </div>
         )
     }

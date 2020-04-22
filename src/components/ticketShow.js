@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { startGetTicket } from '../action/ticketAction'
+import { Link } from 'react-router-dom'
 
 class TicketShow extends React.Component{
     constructor(){
@@ -24,6 +25,7 @@ class TicketShow extends React.Component{
                  <h3>Code :{this.props.tickets.code}</h3>
                  <h4>Priority :{this.props.tickets.priority}</h4>
                  <h4>Message :{this.props.tickets.message}</h4>
+                 <Link to={`ticket/${this.props.match.params.id}`}>Edit</Link>
                 </div>:''}
                 
             </div>

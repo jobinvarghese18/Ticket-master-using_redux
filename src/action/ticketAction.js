@@ -86,3 +86,36 @@ export const startDeleteTickets = (id)=>{
         })
     }
 }
+
+
+//Update Ticket
+export const updateTicket =  (data)=>{
+    return { type:'UPDATE_TICKET',payload:data}
+}
+
+export const startUpdateTicket = (data,id,redirect)=>{
+    return (dispatch)=>{
+        let auth  =  localStorage.getItem('auth')
+        auth = JSON.parse(auth)
+        axios.put(`http://dct-ticket-master.herokuapp.com/tickets/${id}`,data,{
+            headers : {
+                'x-auth' : auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            if(response.hasOwnProperty('errors')){
+                alert('Invalid entry')
+            }
+            else{
+                dispatch(updateTicket(data))
+                redirect()
+            }
+            
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}

@@ -85,3 +85,32 @@ export const startDeleteCustomer = (id)=>{
             
     }
 }
+
+//Update Customer
+export const updateCustome  = (data)=>{
+    return { type:'UPDATE_CUSTOMER',payload:data }
+}
+
+export const startUpdateCustomer = (data,id,redirect)=>{
+    return(dispatch)=>{
+        let auth = localStorage.getItem('auth')
+        auth  = JSON.parse(auth)
+        axios.put(`http://dct-ticket-master.herokuapp.com/customers/${id}`,data,{
+            headers : {
+                'x-auth':auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            if(data.hasOwnProperty('errors')){
+                alert('Inavlid Entry')
+            }
+            else{
+
+                dispatch(updateCustome(data))
+                redirect()
+            }
+        })
+    }
+}
