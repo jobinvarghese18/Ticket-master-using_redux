@@ -119,3 +119,29 @@ export const startUpdateTicket = (data,id,redirect)=>{
         })
     }
 }
+
+//Update isResolved
+export const updateIsResolved = (data)=>{
+        return { type:'UPDATE_ISRESOLVED',payload:data }
+}
+
+export const startUpdateIsResolved  = (id,data)=>{
+    return(dispatch)=>{
+        let auth   = localStorage.getItem('auth')
+        auth =  JSON.parse(auth)
+        axios.put(`http://dct-ticket-master.herokuapp.com/tickets/${id}`,data,{
+            headers : {
+                'x-auth':auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            dispatch(updateIsResolved(data))
+
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+}

@@ -86,3 +86,32 @@ export const startDeleteEmployee = (id)=>{
         })
     }
 }
+
+
+//Update Employee
+export const updateEmployee = (data)=>{
+    return {type:'UPDATE_EMPLOYEE',payload:data}
+}
+
+export const startUpdateEmployee = (id,data,redirect)=>{
+    return(dispatch)=>{
+        let auth = localStorage.getItem('auth')
+        auth  = JSON.parse(auth)
+        axios.put(`http://dct-ticket-master.herokuapp.com/employees/${id}`,data,{
+            headers:{
+                'x-auth':auth
+            }
+        })
+        .then((response)=>{
+            console.log(response.data)
+            const data = response.data
+            if(data.hasOwnProperty('errors')){
+             alert('Invalid entry')
+            }
+            else{
+                dispatch(updateEmployee(data))
+                redirect()
+            }
+        })
+    }
+}

@@ -21,6 +21,16 @@ const ticketReducer = (state = initialState,action)=>{
                 else{
                     return Object.assign({},tkt)
                 }
+            })  
+        }
+        case 'UPDATE_ISRESOLVED':{
+            return state.map(tkt=>{
+                if(tkt._id === action.payload._id){
+                    return Object.assign({},tkt,action.payload)
+                }
+                else{
+                    return Object.assign({},tkt)
+                }
             })
         }
         default : {

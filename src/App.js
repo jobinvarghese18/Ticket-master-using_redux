@@ -18,6 +18,7 @@ import ticketShow from './components/ticketShow'
 import departmentEdit from './components/departmentEdit'
 import ticketEdit from './components/ticketEdit'
 import customerEdit from './components/customerEdit'
+import employeeEdit from './components/employeeEdit'
 
 
 function App(props){
@@ -37,7 +38,8 @@ function App(props){
                <Route path='/department/departments/:id' component = {departmentEdit}/>
                <Route path ='/employee' component={Employee} exact = {true}/>
                <Route path='/employee/employeenew' component={EmployeeNew}/>
-               <Route path='/employee/:id' component={EmployeeShow}/>
+               <Route path='/employee/:id' exact={true} component={EmployeeShow}/>
+               <Route path='/employee/:id/:id' component={employeeEdit}/>
                <Route path='/ticket' exact={true} component={ticket}/>
                <Route path='/ticket/new' exact={true} component = {ticketNew}/>  
                <Route path='/tickets/:id' exact={true} component = {ticketShow}/>

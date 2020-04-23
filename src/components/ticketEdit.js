@@ -30,12 +30,15 @@ class TicketEdit extends React.Component{
     render(){
         
         return(
-           <div>TicketEdit
+           <div><h3>TicketEdit</h3>
 
                {this.props.tickets?
                <div>
-                   <h3>{this.props.tickets.code}</h3>
+                  
                    <form onSubmit={this.handleSubmit}>
+                    <label>Code</label>
+                    <input type='text' name = 'code' id = 'code' 
+                    value = {this.props.tickets.code}/><br/>
                     <input type='radio' id='high' onChange={this.handleChange} value ='high' name='priority'/><label>High</label><br/>
                     <input type='radio' id='medium' onChange={this.handleChange} value ='medium' name='priority'/><label>Meidum</label><br/>
                     <input type='radio' id='low' onChange={this.handleChange} value ='low' name='priority'/><label>Low</label><br/>

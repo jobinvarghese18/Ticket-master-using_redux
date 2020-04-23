@@ -22,17 +22,23 @@ class DepartmentEdit extends React.Component{
         const data = {
             name:this.state.depName
         }
-        this.props.dispatch(startUpdateDepartment(data,this.props.match.params))
+        const redirect = ()=>{
+            this.props.history.push('/department')
+        }
+        this.props.dispatch(startUpdateDepartment(data,this.props.match.params.id,redirect))
     }
     render(){
         return(
-            <div>Hello Edit
+            <div>
                 <form onSubmit={this.handleSubmit}>
                     {this.props.speficDep?
                     <div>
-                    <h3>Name : {this.props.speficDep.name}</h3>
+                    <label>Name</label>
+                    <input type='text' value={this.props.speficDep.name}/><br/>
+                    <label>Name</label>
                     <input type="text" name='depName' id = 'depName' 
-                    value = {this.state.depName} onChange = {this.handleChange}/><br/>
+                    value = {this.state.depName.length>0?this.state.depName:
+                    this.props.speficDep.name} onChange = {this.handleChange}/><br/>
                     <input type='submit' className='myButton'/>
                     </div>
                     :'Loading'}

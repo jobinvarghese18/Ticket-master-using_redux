@@ -84,7 +84,7 @@ export const updateDepartment = (data)=>{
     return { type:'UPDATE_DEP',payload:data}
 }
 
-export const startUpdateDepartment  = (data,id)=>{
+export const startUpdateDepartment  = (data,id,redirect)=>{
     return(dispatch)=>{
         let auth = localStorage.getItem('auth')
         auth  = JSON.parse(auth)
@@ -96,7 +96,14 @@ export const startUpdateDepartment  = (data,id)=>{
         .then((response)=>{
             console.log(response.data)
             const data = response.data
-            dispatch(updateDepartment(data))
+            if(data.hasOwnProperty('errors')){
+                alert('Invalid Entry')
+            }
+            else{
+                dispatch(updateDepartment(data))
+                redirect()
+            }
+            
         })
         .catch((err)=>{
             console.log(err)
