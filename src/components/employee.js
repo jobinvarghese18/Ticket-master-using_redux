@@ -30,8 +30,10 @@ class Employee extends React.Component{
         return(
             <div>
                 <h2>Employees Details</h2>
+                <div className='row'>
+                <div className='col mt-3'>
                 {this.props.employee?
-                <table border='1'>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -52,8 +54,8 @@ class Employee extends React.Component{
                                     <td>{emp.email}</td>
                                     <td>{emp.mobile}</td>
                                     <td>{emp.department?emp.department.name:'loading'}</td>
-                                    <td><button className='myButton' onClick={()=>{this.handleShow(emp._id)}}>Show</button></td>
-                                    <td><button className='myButton' onClick={()=>{this.handleRemove(emp._id)}}>Remove</button></td>
+                                    <td><button className='btn btn-info' onClick={()=>{this.handleShow(emp._id)}}>Show</button></td>
+                                    <td><button className='btn btn-danger' onClick={()=>{this.handleRemove(emp._id)}}>Remove</button></td>
 
                                 </tr>
                             )
@@ -61,8 +63,10 @@ class Employee extends React.Component{
                     </tbody>
 
                 </table>:''}
+                </div>
+                </div>
                
-                <button className='myButton' onClick={this.handleAddEmp}>Add Employee</button>
+                <button className='btn btn-info' onClick={this.handleAddEmp}>Add Employee</button>
             {this.state.addFlag?<Redirect to={'/employee/employeenew'}/>:''}
             {this.state.showFlag?<Redirect to={`/employee/${this.state.id}`}/>:''}
             </div>

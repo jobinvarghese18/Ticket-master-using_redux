@@ -62,9 +62,12 @@ class Tickets extends React.Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                 <h1>Add Ticket</h1>
+                <div className='form-group'>
                 <label>Code</label> <h4>{this.state.random}</h4><br/>
+                </div>
+                <div className='form-group'>
                 <label>Customer</label>
-                <select onChange={this.handleSelect}name='customer'>
+                <select className='form-control' onChange={this.handleSelect}name='customer'>
                     <option>---select---</option>
                     {
                         this.props.customer.map((cstr=>{
@@ -74,9 +77,10 @@ class Tickets extends React.Component{
                         }))
                     }
                 </select>
-                <br/>
+                </div>
+                <div className='form-group'>
                 <label>Department</label>
-                <select onChange={this.handleSelect}name='department'>
+                <select className='form-control' onChange={this.handleSelect}name='department'>
                     <option>---select---</option>
                     {
                         this.props.department.map((dep=>{
@@ -85,9 +89,11 @@ class Tickets extends React.Component{
                             )
                         }))
                     }
-                </select><br/>
+                </select>
+                </div>
+                <div className='form-group'>
                 <label>Employee</label>
-                <select onChange={this.handleSelect}name='employee'>
+                <select className='form-control' onChange={this.handleSelect}name='employee'>
                     <option>---select---</option>
                     {
                         this.props.employee.map((emp=>{
@@ -99,14 +105,18 @@ class Tickets extends React.Component{
                             
                         }))
                     }
-                </select><br/>
-                <br/>
+                </select>
+                </div>
+                <div className='form-group'>
                 <label>Message</label>
-                <input type="textarea"  name ='message' onChange={this.handleChange} id='message'/><br/>
-                <input type='radio' id='high' onChange={this.handleChange} value ='high' name='priority'/><label>High</label><br/>
-                <input type='radio' id='medium' onChange={this.handleChange} value ='medium' name='priority'/><label>Meidum</label><br/>
-                <input type='radio' id='low' onChange={this.handleChange} value ='low' name='priority'/><label>Low</label><br/>
-                <input type='submit' className='myButton'/>
+                <input className='form-control' type="textarea"  name ='message' onChange={this.handleChange} id='message'/></div>
+                <div className='form-group'>
+                <input  type='radio' id='high' onChange={this.handleChange} value ='high' name='priority'/><label>High</label></div>
+                <div className='form-group'>
+                <input  type='radio' id='medium' onChange={this.handleChange} value ='medium' name='priority'/><label>Meidum</label></div>
+                <div className='form-group'>
+                <input type='radio' id='low'  onChange={this.handleChange} value ='low' name='priority'/><label>Low</label></div>
+                <input type='submit' className='btn btn-primary'/>
                 </form>
             </div>
         )

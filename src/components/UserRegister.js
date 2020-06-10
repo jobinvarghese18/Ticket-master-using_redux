@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 
-import '../app.css'
+// import '../app.css'
 import {startPostUsers} from '../action/userAction'
 
 
@@ -30,19 +30,26 @@ class UserRegister extends React.Component{
     render(){
         return(
             <div>
-                <h1>User REG</h1>
+                <div className='row'>
+                    <div className='col-md-4 offset-4'>
+                <h3>Register here..!</h3>
                 <form onSubmit={this.handleSubmit}>
+                <div className='form-group'>
                     <label htmlFor="username">Name</label>
-                    <input type="text" name="username" id="username" value={this.state.username}
-                    onChange={this.handleChange}/><br/>
+                    <input type="text" name="username" id="username" className='form-control'value={this.state.username}
+                    onChange={this.handleChange}/></div>
+                    <div className='form-group'>
                     <label>E-mail</label>
-                    <input type="text" name="email" id='email' vlaue={this.state.email}
-                    onChange={this.handleChange}/><br/>
+                    <input type="text" name="email" id='email' className='form-control' vlaue={this.state.email}
+                    onChange={this.handleChange}/></div>
+                    <div className='form-group'>
                     <label>Password</label>
-                    <input type="text" name="password" id='password' value ={this.state.password}
-                    onChange={this.handleChange}/><br/>
-                    <input type="submit" value="Register" className='myButton'/>
+                    <input type="text" name="password" id='password' className='form-control' value ={this.state.password}
+                    onChange={this.handleChange}/></div>
+                    <input type="submit" value="Register" className='btn btn-primary'/>
                     </form>
+                    </div>
+                </div>
             </div>
         )
     }

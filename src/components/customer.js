@@ -43,7 +43,7 @@ class Customer extends React.Component{
 
         return(
             <div>
-                <table border='1'>
+                <table className='table'>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -61,9 +61,9 @@ class Customer extends React.Component{
                                     <td>{ele.name}</td>
                                     <td>{ele.email}</td>
                                     <td>{ele.mobile}</td>
-                                    <td><button onClick={()=>{this.handleShow(ele._id)}} className='myButton'>Show</button></td>
+                                    <td><button className='btn btn-primary' onClick={()=>{this.handleShow(ele._id)}} >Show</button></td>
                                     {this.state.status?<Redirect to={`/customer/newcustomer/${this.state.id}`}/>:''}
-                                    <td><button onClick={()=>{this.handleRemove(ele._id)}} className='myButton'>Remove</button></td>
+                                    <td><button onClick={()=>{this.handleRemove(ele._id)}} className='btn btn-danger'>Remove</button></td>
                                 </tr>
                             )
                         })
@@ -72,7 +72,7 @@ class Customer extends React.Component{
                 </tbody>
                 
                 </table>
-                <button className="myButton" onClick={this.handleClick}>ADD Customer</button>
+                <button className="btn btn-info" onClick={this.handleClick}>ADD Customer</button>
                 {this.state.flag?<Redirect to ={'/customer/newcustomer'}/>:''}
             </div>
         )

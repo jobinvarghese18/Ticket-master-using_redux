@@ -33,6 +33,18 @@ export const startPostUsers = (data)=>{
         })
     }
 }
+//Logout 
+export const resetUser =  (data)=>{
+    return { type:'RESET_USER',payload:data}
+}
+export const startLogout = ()=>{
+    return(dispatch)=>{
+        localStorage.removeItem('auth')
+        dispatch(resetUser({}))
+        window.location.href ='/users/login'
+        
+    }
+}
 
 
 

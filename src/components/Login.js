@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {startPostLogin} from '../action/LoginAction'
-import '../app.css'
+// import '../app.css'
 
 
 class Login extends React.Component{
@@ -29,14 +29,21 @@ class Login extends React.Component{
         
         return(
             <div>
+                <div className='row'>
+                    <div className='col-md-4 offset-4'>
+                        <h3>Login here</h3>
                 <form onSubmit={this.handleSubmit}>
+                    <div className='form-group'>
                     <label>E-Mail</label>
-                    <input type="text" id='email' name='email' onChange={this.handleOnChange}/><br/>
+                    <input type="text" id='email' className='form-control' name='email' onChange={this.handleOnChange}/></div>
                     <label>Password</label>
-                    <input type="text"  id="password" name="password" onChange={this.handleOnChange}/><br/>
-                    <input className='myButton' value='Login' type="submit"/>
+                    <div className='form-group'>
+                    <input type="text"  id="password" className='form-control'name="password" onChange={this.handleOnChange}/></div>
+                    <input className='btn btn-primary' value='Login' type="submit"/>
                     {this.props.token.length>0?<Redirect to='/'/>:''}
                 </form>
+                </div>
+                </div>
             </div>
         )
     }

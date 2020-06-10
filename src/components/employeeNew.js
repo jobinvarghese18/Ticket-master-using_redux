@@ -40,19 +40,28 @@ class EmployeeNew extends React.Component{
     render(){
         return(
             <div>
-                <h1>ADD Employee</h1>
+                 <h2>ADD Employee</h2>
+                <div className='row'>
+                    <div className='col-md-8 offset-2'>
                 <form onSubmit={this.handleSubmit}>
+                    <div className='form-group'>
                     <label htmlFor='name'>Name</label>
-                    <input type='text' name='name' id='name' onChange={this.handleChange}
-                    value={this.state.name} /><br/>
+                    <input type='text' name='name' id='name' className='form-control' onChange={this.handleChange}
+                    value={this.state.name} />
+                    </div>
+                    <div className='form-group'>
                     <label htmlFor='phone'>Phone</label>
-                    <input type='text' name='phone' id='phone' onChange={this.handleChange}
-                    value={this.state.phone} /><br/>
+                    <input type='text' name='phone' id='phone' className='form-control' onChange={this.handleChange}
+                    value={this.state.phone} />
+                    </div>
+                    <div className='form-group'>
                     <label htmlFor='email'>E-mail</label>
-                    <input type='text' name='email' id='email' onChange={this.handleChange}
-                    value={this.state.email} /><br/>
+                    <input type='text' name='email' id='email' className='form-control' onChange={this.handleChange}
+                    value={this.state.email} />
+                    </div>
+                    <div className='form-group'>
                     <label htmlFor='select'>Department</label>
-                    <select name='select' onClick={this.handleSelect}>
+                    <select name='select' className='form-control' onClick={this.handleSelect}>
                     <option>--select--</option>
                         {
                             
@@ -65,9 +74,12 @@ class EmployeeNew extends React.Component{
                             })
                         }
                     </select><br/>
-                    <input type="submit" className='myButton'/>
+                    </div>
+                    <input type="submit" className='btn btn-primary'/>
 
                 </form>
+                </div>
+                </div>
             </div>
         )
     }

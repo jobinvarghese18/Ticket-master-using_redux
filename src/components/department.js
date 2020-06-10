@@ -38,7 +38,7 @@ class Department  extends React.Component{
 
         return(
             <div>
-                <table border='1'>
+                <table className='table'>
                     <thead>
                         <tr>
                             <th>Dep Name</th>
@@ -53,9 +53,9 @@ class Department  extends React.Component{
                                 return(
                                     <tr key={dep._id}>
                                         <td>{dep.name}</td>
-                                        <td><button className='myButton' 
+                                        <td><button className='btn btn-info' 
                                         onClick = {()=>{this.handleShow(dep._id)}}>show</button></td>
-                                        <td><button className='myButton' 
+                                        <td><button className='btn btn-danger' 
                                         onClick={()=>{this.handleRemove(dep._id)}}>Delete</button></td>
                                        
                                     </tr>
@@ -66,10 +66,12 @@ class Department  extends React.Component{
                     {this.state.showFlag?<Redirect to={`department/${this.state.id}`}/>:''}
                 </table>
                 <form onSubmit={this.handleSubmit}>
+                    <div className='form-group'>
                    <label>Department</label>
                    <input type='text' name='name' id='name' value={this.state.name}
-                   onChange={this.handleChange}/><br/>
-                   <input type ="submit" className='myButton'/>
+                   onChange={this.handleChange} className='form-control'/><br/>
+                   </div>
+                   <input type ="submit" className='btn btn-success'/>
                 </form>
             </div>
         )

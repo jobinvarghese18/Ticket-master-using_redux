@@ -102,7 +102,7 @@ class TicketHome extends React.Component{
             <div>
                 
                <h1>Ticket Home</h1>
-                <table border='1'>
+                <table className='table'>
                 <thead>
                     <tr>
                         <th>Code No.</th>
@@ -134,8 +134,8 @@ class TicketHome extends React.Component{
                                       <td>{employee?employee.name:'loading'}</td>
                                       <td>{tkts.message}</td>
                                       <td>{tkts.priority}</td>
-                                      <td><button className='myButton' onClick={()=>{this.handleShow(tkts._id)}}>show</button></td>
-                                      <td><button className='myButton' onClick={()=>{this.handleRemove(tkts._id)}}>Remove</button></td>
+                                      <td><button className='btn btn-info' onClick={()=>{this.handleShow(tkts._id)}}>show</button></td>
+                                      <td><button className='btn btn-danger' onClick={()=>{this.handleRemove(tkts._id)}}>Remove</button></td>
                                       <td><input type='checkbox' value={tkts.isResolved} 
                                       onChange={()=>{this.handleCheckBox(tkts.isResolved,tkts._id)}}/></td>
                                     </tr>
@@ -151,7 +151,7 @@ class TicketHome extends React.Component{
                 </table>
                 <Link to ={'ticket/new'}>New ticket</Link><br/>
 
-                <progress id="file" value={completed.length} max={this.props.tickets.length}/> 
+                <progress id="file" className='progress-bar progress-bar-striped progress-bar-animated'value={completed.length} max={this.props.tickets.length}/> 
                 <Chart
                     chartType="PieChart"
                     data={[["Age", "Weight"], ["Low", low], ["medium", medium],["high",high]]}

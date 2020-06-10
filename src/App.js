@@ -1,5 +1,6 @@
 import React from'react'
 import {BrowserRouter,Route,Link} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css'
 // import Login from './components/Login'
 import Home from './components/Home'
 import UserRegister from './components/UserRegister'
@@ -24,7 +25,7 @@ import employeeEdit from './components/employeeEdit'
 function App(props){
     return(
            <BrowserRouter>
-           <div>
+           <div className='container'>
                
                <Route path='/' component={Home} />
                <Route path='/userreg' component = {UserRegister}/>
