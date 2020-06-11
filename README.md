@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * redux thunk
 * react-redux
 * react-router-dom
-
+## Tickets UI
 ![](https://github.com/jobinvarghese18/Ticket-master-using_redux/blob/master/pro.png)
 ## Available Scripts
 
