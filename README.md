@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Main libraries used
+* redux
+* redux thunk
+* react-redux
+* react-router-dom
+* express
+* mongoose
+* validator
+* JWT
+* bcryptjs
 
+![](https://github.com/jobinvarghese18/Ticket-master-using_redux/blob/master/pro.png)
 ## Available Scripts
 
 In the project directory, you can run:
