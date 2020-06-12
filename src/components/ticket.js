@@ -100,8 +100,13 @@ class TicketHome extends React.Component{
       
         return(
             <div>
-                
-               <h1>Ticket Home</h1>
+              <div className='row'>
+                <div className='col-md-4 mt-2'>
+                <h3>Tickets info</h3>
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col'>
                 <table className='table'>
                 <thead>
                     <tr>
@@ -149,6 +154,8 @@ class TicketHome extends React.Component{
                     
                 </tbody>
                 </table>
+                </div>
+              </div>
                 <Link to ={'ticket/new'}>New ticket</Link><br/>
 
                 <progress id="file" className='progress-bar progress-bar-striped progress-bar-animated'value={completed.length} max={this.props.tickets.length}/> 
